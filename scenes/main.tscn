@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c3kekn6utlf3"]
+
+[ext_resource type="PackedScene" uid="uid://m2jveiev5lde" path="res://scenes/gliger.tscn" id="1_o5qli"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jkv2x"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_jbj1t"]
+sky_material = SubResource("ProceduralSkyMaterial_jkv2x")
+
+[sub_resource type="Environment" id="Environment_muem4"]
+background_mode = 2
+sky = SubResource("Sky_jbj1t")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5qli"]
+albedo_color = Color(0.5037685, 0.5037685, 0.50376844, 1)
+
+[node name="main" type="Node3D" unique_id=1210696284]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1061033271]
+environment = SubResource("Environment_muem4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=25669098]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="glider" parent="." unique_id=1757830164 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.094964, 0)
+
+[node name="groung" type="CSGBox3D" parent="." unique_id=1645438648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7301025, 0.46539307, -0.56018066)
+use_collision = true
+size = Vector3(30.599854, 0.06921387, 67.69556)
+material = SubResource("StandardMaterial3D_o5qli")
