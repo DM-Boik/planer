@@ -1,30 +1,7 @@
 @tool
 extends VehicleBody3D
 class_name AeroBody3D
-## AeroBody3D is the base node for simulating aerodynamic forces.[br]
-##
-## Aerodynamic forces are calculated from child [AeroInfluencer3D] nodes.[br]
-## [br]
-## Steps to retain all functionality when extending this script:[br]
-## 1. Add [code]@tool[/code] to the top of the script.[br]
-##     - This allows the script to run in the editor, so that the debug vectors can update.[br]
-## 2. call [code]super()[/code] when extending functions.[br]
-## [br]
-## examples:
-## [codeblock lang=gdscript]
-## func _enter_tree():
-##     super()
-##     (...)
-##
-## func _ready():
-##     super()
-##     (...)
-##
-## func _physics_process(delta):
-##     super(delta)
-##     (...)
-##
-## [/codeblock]
+
 
 const AeroMathUtils = preload("../utils/math_utils.gd")
 const AeroNodeUtils = preload("../utils/node_utils.gd")
