@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://de7ke3ueeauhh"]
+
+[ext_resource type="Script" uid="uid://qavho87iob7h" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://dpfyvfa3nwhp6" path="res://scripts/camera_pivot.gd" id="2_g2els"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u8vuu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2els"]
+albedo_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
+albedo_color = Color(0.08701607, 0.08701607, 0.08701607, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dqkch"]
+material = SubResource("StandardMaterial3D_qhqgy")
+
+[sub_resource type="BoxMesh" id="BoxMesh_g2els"]
+
+[node name="player" type="CharacterBody3D" unique_id=1426133467]
+script = ExtResource("1_3vyb7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=246682519]
+mesh = SubResource("CapsuleMesh_u8vuu")
+surface_material_override/0 = SubResource("StandardMaterial3D_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=581866120]
+shape = SubResource("CapsuleShape3D_3vyb7")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1584689466]
+script = ExtResource("2_g2els")
+
+[node name="FPV" type="Camera3D" parent="CameraPivot" unique_id=643289476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6933335, 0)
+
+[node name="eyes" type="MeshInstance3D" parent="CameraPivot" unique_id=1750873611]
+transform = Transform3D(0.40617132, 0, 0, 0, 0.20238012, 0, 0, 0, 0.18660945, 0, -0.17578673, -0.4436254)
+mesh = SubResource("BoxMesh_dqkch")
+
+[node name="UI" type="Node2D" parent="CameraPivot" unique_id=524511767]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CameraPivot/UI" unique_id=1867297863]
+position = Vector2(601, 326)
+scale = Vector2(6.5600014, 7.1200013)
+mesh = SubResource("BoxMesh_g2els")
