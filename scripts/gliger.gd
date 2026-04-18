@@ -1,33 +1,39 @@
 extends AeroBody3D
 
-# Этот флаг показывает, управляет ли сейчас игрок этим самолётом
-var is_active := false
+var player_active = false
+var PlayerIn = false
 
-func _ready():
-	# На старте самолёт неактивен (управление у игрока)
-	set_active(false)
+func _ready() -> void:
+	PlayerIn = false	
+
+func _input(event):
+	if event.is_action_pressed("enter") && event.is_pressed() && PlayerIn:
+		_glider_control()
+	elif player_active && event.is_action_pressed("enter") && event.is_pressed():
+		leave_car()
+
+func _glider_control():
+	var player = get_tree().get_first_node_in_group("player")
 	
-	# Находим зону посадки (покажите на неё в редакторе или найдите по имени)
-	var area = $enter_area 
-	area.body_entered.connect(_on_body_entered)
-	area.body_exited.connect(_on_body_exited)
+	player_active = true
+	player.queue_free()
 
-func _on_body_entered(body):
-	if body.name == "Player": # Или проверка по группе/классу
-		print("Player entered")
-		body.nearby_plane = self
-
-func _on_body_exited(body):
-	if body.name == "Player":
-		body.nearby_plane = null
-
-func set_active(active: bool):
-	is_active = active
-	set_process_input(active)
-	set_physics_process(active) # Если обработка в _physics_process
+func leave_car():
+	var player = preload("res://scenes/player.tscn").instantiate()
 	
-	# Дополнительно: включаем/выключаем захват мыши
-	if active:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	player_active = false
+	get_tree().current_scene.add_child(player)
+	player.global_position = global_position
+
+func _physics_process(delta):
+	if not player_active: return
+	
+
+func _on_enter_area_body_entered(body):
+	if body == get_tree().get_first_node_in_group("player"):
+		print("PLAYER")
+		PlayerIn = true
+
+func _on_enter_area_body_exited(body):
+	if body == get_tree().get_first_node_in_group("player"):
+		PlayerIn = false

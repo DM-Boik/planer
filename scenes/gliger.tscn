@@ -1107,3 +1107,6 @@ metadata/_custom_type_script = "uid://3kjm0rdymoth"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="enter_area" unique_id=1378432623]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030761719, 0.25994873, 0.768692)
 shape = SubResource("BoxShape3D_3jote")
+
+[connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
+[connection signal="body_exited" from="enter_area" to="." method="_on_enter_area_body_exited"]

@@ -34,8 +34,8 @@ script = ExtResource("2_g2els")
 [node name="FPV" type="Camera3D" parent="CameraPivot" unique_id=643289476]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6933335, 0)
 
-[node name="eyes" type="MeshInstance3D" parent="CameraPivot" unique_id=1750873611]
-transform = Transform3D(0.40617132, 0, 0, 0, 0.20238012, 0, 0, 0, 0.18660945, 0, -0.17578673, -0.4436254)
+[node name="eyes" type="MeshInstance3D" parent="CameraPivot/FPV" unique_id=1750873611]
+transform = Transform3D(0.40617132, 0, 0, 0, 0.20238012, 0, 0, 0, 0.18660945, 0, -0.86912024, -0.4436254)
 mesh = SubResource("BoxMesh_dqkch")
 
 [node name="UI" type="Node2D" parent="CameraPivot" unique_id=524511767]
