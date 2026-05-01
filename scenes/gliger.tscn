@@ -13,8 +13,11 @@
 [ext_resource type="Script" uid="uid://c46td0go5kvp6" path="res://addons/godot_aerodynamic_physics/core/controls/aero_influencer_control_axis_config.gd" id="11_nhcxn"]
 [ext_resource type="Script" uid="uid://cblxodmmwvpt6" path="res://addons/godot_aerodynamic_physics/core/controls/aero_influencer_control_config.gd" id="12_c61tu"]
 [ext_resource type="Script" uid="uid://8ewjtc0ptugb" path="res://scripts/camera_3d.gd" id="13_4broc"]
-[ext_resource type="Script" uid="uid://bbnaqbo2etqk4" path="res://scripts/ray_cast_3d.gd" id="14_rm6cc"]
+[ext_resource type="Script" uid="uid://bbnaqbo2etqk4" path="res://scripts/cursor_glider.gd" id="14_rm6cc"]
 [ext_resource type="Script" uid="uid://3kjm0rdymoth" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_thruster_3d/aero_thruster_3d.gd" id="15_3jote"]
+[ext_resource type="Script" uid="uid://cqxb2em4x77y" path="res://scripts/label.gd" id="15_3puar"]
+[ext_resource type="Animation" uid="uid://daf8et6pe03bx" path="res://animations/door_close.res" id="15_o1pwm"]
+[ext_resource type="Script" uid="uid://cyy6xri5kpkpt" path="res://scripts/lever.gd" id="16_o1pwm"]
 
 [sub_resource type="Resource" id="Resource_gqmmt"]
 resource_name = "pitch"
@@ -37,9 +40,16 @@ axis_name = "roll"
 positive_event = &"roll_left"
 negative_event = &"roll_right"
 
+[sub_resource type="Resource" id="Resource_3puar"]
+resource_name = "throttle"
+script = ExtResource("3_rm6cc")
+axis_name = "throttle"
+cumulative_positive_event = &"thrl_up"
+cumulative_negative_event = &"thrl_down"
+
 [sub_resource type="Resource" id="Resource_2f3dj"]
 script = ExtResource("4_3jote")
-axis_configs = Array[ExtResource("3_rm6cc")]([SubResource("Resource_gqmmt"), SubResource("Resource_yc10j"), SubResource("Resource_jscy8")])
+axis_configs = Array[ExtResource("3_rm6cc")]([SubResource("Resource_gqmmt"), SubResource("Resource_yc10j"), SubResource("Resource_jscy8"), SubResource("Resource_3puar")])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7n1c"]
 resource_name = "Vehicle_Elements"
@@ -713,6 +723,7 @@ metadata/_custom_type_script = "uid://cblxodmmwvpt6"
 [sub_resource type="BoxMesh" id="BoxMesh_3jote"]
 
 [sub_resource type="Animation" id="Animation_rm6cc"]
+resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -737,34 +748,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(3.1292436e-07, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_3jote"]
-resource_name = "door_close"
-length = 1.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_Door:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.33, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.0001497203, -0.019784814, 0.00021274248), Vector3(-0.0001497203, -0.019784814, 0.00021274202), Vector3(-0.0001497203, -0.019392455, 0.00026156497)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_Door:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.33, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.79047745, 0, 0), Vector3(3.4272676e-07, 0, 0), Vector3(3.1292436e-07, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_w008i"]
@@ -798,7 +781,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o1pwm"]
 _data = {
 &"RESET": SubResource("Animation_rm6cc"),
-&"door_close": SubResource("Animation_3jote"),
+&"door_close": ExtResource("15_o1pwm"),
 &"door_open": SubResource("Animation_w008i")
 }
 
@@ -885,8 +868,9 @@ axis_configs = Array[ExtResource("11_nhcxn")]([SubResource("Resource_w008i")])
 use_separate_minmax = true
 min_value = Vector3(0, 0, -1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3jote"]
-size = Vector3(0.93847656, 0.8272705, 0.9347229)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w008i"]
+height = 0.9667969
+radius = 0.21142578
 
 [node name="AeroBody3D" type="VehicleBody3D" unique_id=1757830164]
 collision_layer = 16385
@@ -1004,7 +988,7 @@ wing_config = SubResource("Resource_og1vs")
 metadata/_custom_type_script = "uid://d1725od371u4a"
 
 [node name="elevator" type="Node3D" parent="Hor_stab" unique_id=1833204660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0062127113, 0, -0.12115002)
+transform = Transform3D(1, 0, 0, 0, 0.9917786, -0.12796476, 0, 0.12796476, 0.9917786, -0.0062127113, 0, -0.12115002)
 script = ExtResource("8_hruys")
 manual_config = SubResource("Resource_fv21b")
 wing_config = SubResource("Resource_tel4y")
@@ -1043,7 +1027,7 @@ script = ExtResource("13_4broc")
 [node name="FPV" type="Camera3D" parent="CameraPivot" unique_id=902415142]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.0047397017, -0.0033978224)
 
-[node name="RayCast3D" type="RayCast3D" parent="CameraPivot/FPV" unique_id=1449448335]
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot/FPV" unique_id=1449448335 groups=["cursors"]]
 transform = Transform3D(1, 0, 3.821371e-15, 3.821371e-15, 4.371139e-08, -1, 0, 1, 4.371139e-08, 0, 0, 0)
 collision_mask = 128
 collide_with_areas = true
@@ -1056,13 +1040,22 @@ position = Vector2(601, 326)
 scale = Vector2(6.5600014, 7.1200013)
 mesh = SubResource("BoxMesh_3jote")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=670147478]
+[node name="parametrs" type="Label" parent="CameraPivot/FPV/UI" unique_id=394125072]
+offset_left = 23.0
+offset_top = 12.0
+offset_right = 75.0
+offset_bottom = 38.0
+text = "speed: %-.1fm/s"
+script = ExtResource("15_3puar")
+
+[node name="PlayerAnim" type="AnimationPlayer" parent="." unique_id=670147478]
 libraries/ = SubResource("AnimationLibrary_o1pwm")
 
-[node name="lever" type="Area3D" parent="." unique_id=1566542175 groups=["interactable"]]
+[node name="lever" type="Area3D" parent="." unique_id=1566542175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23877198, 0, 1.1940898)
-collision_layer = 128
-collision_mask = 128
+collision_layer = 204
+collision_mask = 204
+script = ExtResource("16_o1pwm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lever" unique_id=1216800881]
 transform = Transform3D(0.9995818, 0, -0.028916076, 0, 1, 0, 0.028916076, 0, 0.9995818, -0.032685578, 0.07077789, -0.013168693)
@@ -1093,20 +1086,20 @@ suspension_stiffness = 500.0
 transform = Transform3D(100, 1.3552527e-20, 3.3881318e-21, -4.2351647e-22, 12.348001, -99.234726, -9.466331e-30, 99.234726, 12.348, -2.8021168e-07, -0.0019566119, -0.0006980896)
 mesh = SubResource("ArrayMesh_xn0up")
 
-[node name="Camera3D2" type="Camera3D" parent="." unique_id=225976901]
-transform = Transform3D(-0.18017025, -0.24715468, 0.9520784, -0.050767966, 0.96896446, 0.24193093, -0.9823245, -0.0047463262, -0.1871261, 7.7557054, 1.3478148, -1.61207)
-
 [node name="AeroThruster3D" type="Node3D" parent="." unique_id=537421508]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.096300125, 0.3539834)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.08448535, 2.1344395)
 script = ExtResource("15_3jote")
 throttle_control_config = SubResource("Resource_o1pwm")
+max_thrust_force = 1500.0
 metadata/_custom_type_script = "uid://3kjm0rdymoth"
 
 [node name="enter_area" type="Area3D" parent="." unique_id=1629778173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043150187, 0.17328453, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="enter_area" unique_id=1378432623]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030761719, 0.25994873, 0.768692)
-shape = SubResource("BoxShape3D_3jote")
+transform = Transform3D(1, 0, 0, 0, -0.1303705, -0.99146545, 0, 0.99146545, -0.1303705, 0.07884425, 0.21674049, 0.986946)
+shape = SubResource("CylinderShape3D_w008i")
+debug_color = Color(0.97836083, 0, 0.40056536, 0.41960785)
 
 [connection signal="body_entered" from="enter_area" to="." method="_on_enter_area_body_entered"]
 [connection signal="body_exited" from="enter_area" to="." method="_on_enter_area_body_exited"]

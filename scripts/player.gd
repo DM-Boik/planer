@@ -2,13 +2,13 @@ extends CharacterBody3D
 
 @onready var camera: Node3D = $CameraPivot
 @onready var player_mesh: MeshInstance3D = $MeshInstance3D
+@onready var raycast: RayCast3D = $CameraPivot/FPV/RayCast3D
+
 
 const G : float = 9.8
 const jump = 5
 var speed : float = 3.0
-var index_cam = 1
 
-var nearby_plane = null # Ссылка на самолёт, рядом с которым мы стоим
 
 func _ready() -> void:
 	add_to_group("player")
@@ -16,9 +16,17 @@ func _ready() -> void:
 func _process(_delta : float):
 	pass
 
-
-
 func _physics_process(delta: float):
+	
+	raycast.force_raycast_update()
+	if raycast.is_colliding():
+		var target = raycast.get_collider()
+		print(target)
+		if target.has_method("activate"):
+			print("YOU CAN ACTIVATE")
+			if Input.is_action_just_pressed("activate"):
+				target.activate()
+	
 	if not is_on_floor():
 		velocity.y -= G * delta
 	
@@ -38,5 +46,4 @@ func _physics_process(delta: float):
 	move_and_slide()
 
 func _input(event):
-	if event.is_action_pressed("activate") and nearby_plane:
-		get_tree().call_group("game_manager", "enter_plane", self, nearby_plane)
+	pass

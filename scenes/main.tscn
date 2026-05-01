@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0338184, 1.3223512, -5.5191
 transform = Transform3D(1, 0, 0, 0, 0.99958634, -0.028759062, 0, 0.028759062, 0.99958634, 0, 1.0927451, -8.183243)
 
 [node name="groung" type="CSGBox3D" parent="." unique_id=1645438648]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7301025, 0.46539307, -0.56018066)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 13.048624, 1.7301025, 0.46539307, -0.56018066)
 use_collision = true
 size = Vector3(30.599854, 0.06921387, 67.69556)
 material = SubResource("StandardMaterial3D_o5qli")

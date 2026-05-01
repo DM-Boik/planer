@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qavho87iob7h" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dpfyvfa3nwhp6" path="res://scripts/camera_pivot.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://b3g0n47tiaknm" path="res://scripts/cursor_player.gd" id="3_qhqgy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8vuu"]
 
@@ -37,6 +38,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6933335, 0)
 [node name="eyes" type="MeshInstance3D" parent="CameraPivot/FPV" unique_id=1750873611]
 transform = Transform3D(0.40617132, 0, 0, 0, 0.20238012, 0, 0, 0, 0.18660945, 0, -0.86912024, -0.4436254)
 mesh = SubResource("BoxMesh_dqkch")
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot/FPV" unique_id=2124923644]
+transform = Transform3D(1, 0, 0, 0, -7.436036e-08, -0.99999994, 0, 1.7011666, -4.3711385e-08, 0, 0, -0.34401786)
+collision_mask = 128
+collide_with_areas = true
+script = ExtResource("3_qhqgy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CameraPivot/FPV" unique_id=372008531 groups=["cursors"]]
+transform = Transform3D(0.06846917, 0, 0, 0, 0.06028974, 0, 0, 0, 1.6378183, 0, 0, -1.197876)
+visible = false
+use_collision = true
+collision_layer = 204
+collision_mask = 204
+size = Vector3(1, 1, 1.6945801)
 
 [node name="UI" type="Node2D" parent="CameraPivot" unique_id=524511767]
 
