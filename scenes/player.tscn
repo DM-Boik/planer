@@ -10,6 +10,7 @@
 albedo_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
+radius = 0.3154297
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
 albedo_color = Color(0.08701607, 0.08701607, 0.08701607, 1)
@@ -23,6 +24,7 @@ material = SubResource("StandardMaterial3D_qhqgy")
 script = ExtResource("1_3vyb7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=246682519]
+transform = Transform3D(0.56187284, 0, 0, 0, 1, 0, 0, 0, 0.64291763, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_u8vuu")
 surface_material_override/0 = SubResource("StandardMaterial3D_g2els")
 
@@ -36,7 +38,7 @@ script = ExtResource("2_g2els")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6933335, 0)
 
 [node name="eyes" type="MeshInstance3D" parent="CameraPivot/FPV" unique_id=1750873611]
-transform = Transform3D(0.40617132, 0, 0, 0, 0.20238012, 0, 0, 0, 0.18660945, 0, -0.86912024, -0.4436254)
+transform = Transform3D(0.3789967, 0, 0, 0, 0.20238012, 0, 0, 0, 0.18660945, 0, -0.86912024, -0.25399607)
 mesh = SubResource("BoxMesh_dqkch")
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraPivot/FPV" unique_id=2124923644]

@@ -7,6 +7,11 @@ class_name AeroControlComponent
 ## Include for the AeroMathUtils library.
 const AeroMathUtils = preload("../../utils/math_utils.gd")
 
+@onready var target: VehicleBody3D = $".."
+var PlayerIn:bool = false
+var ActivePlayer:bool = false
+
+
 ## Reference to the parent [AeroBody3D].
 @onready var aero_body : AeroBody3D = get_parent()
 ## FlightAssist resource used to configure flight assist features.
@@ -25,11 +30,17 @@ func _ready() -> void:
 			control_config = control_config.duplicate(true)
 
 func _physics_process(delta : float) -> void:
+	
 	if Engine.is_editor_hint():
 		return
 	
-	control_config.update(delta)
-	update_flight_assist(delta)
+	player_check()
+	
+	if ActivePlayer == false:
+		pass
+	else:
+		control_config.update(delta)
+		update_flight_assist(delta)
 
 ## Used internally to update the FlightAssist resource, and receive the resulting control command.
 func update_flight_assist(delta : float) -> void:
@@ -80,3 +91,19 @@ func get_control_command(axis_name : String = "") -> float:
 			#print(control_config.get_control_command(axis_name))
 		return control_config.get_control_command(axis_name)
 	return 0.0
+
+func _on_enter_area_body_entered(body):
+	if body == get_tree().get_first_node_in_group("player"):
+		print("HUI")
+		PlayerIn = true
+
+func _on_enter_area_body_exited(body):
+	if body == get_tree().get_first_node_in_group("player"):
+		PlayerIn = false
+
+func player_check():
+	if PlayerIn && Input.is_action_just_pressed("enter") && not ActivePlayer:
+		ActivePlayer = true
+		print("worked")
+	elif Input.is_action_just_pressed("enter") && ActivePlayer:
+		ActivePlayer = false

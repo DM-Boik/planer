@@ -9,7 +9,7 @@ func _ready() -> void:
 	add_to_group("vehicles")
 	PlayerIn = false
 	ui.hide()
-	
+	set_brake(10)
 
 func _input(event):
 	if event.is_action_pressed("enter") && event.is_pressed() && PlayerIn:
@@ -46,3 +46,9 @@ func _on_enter_area_body_entered(body):
 func _on_enter_area_body_exited(body):
 	if body == get_tree().get_first_node_in_group("player"):
 		PlayerIn = false
+
+func player_check():
+	if PlayerIn:
+		return true
+	elif not PlayerIn:
+		return false
