@@ -3,11 +3,14 @@ extends CharacterBody3D
 @onready var camera: Node3D = $CameraPivot
 @onready var player_mesh: MeshInstance3D = $MeshInstance3D
 @onready var raycast: RayCast3D = $CameraPivot/FPV/RayCast3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 const G : float = 9.8
 const jump = 5
 var speed : float = 3.0
+var pos : bool = true
+var pos_o : bool = true
 
 
 func _ready() -> void:
@@ -46,4 +49,12 @@ func _physics_process(delta: float):
 	move_and_slide()
 
 func _input(event):
-	pass
+	if event.is_action_pressed("sit"):
+		pos = !pos_o
+		if pos == false:
+			$AnimationPlayer.play("sitdown")
+			pos_o = pos
+		elif pos == true:
+			$AnimationPlayer.play("standup")
+			pos_o = pos
+	

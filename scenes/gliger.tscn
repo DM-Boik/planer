@@ -773,6 +773,102 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(0, 0.11545521, 1.1060252)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Cable/V1_SailplaneGlider_1_LandingGear:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.2737367e-15, -0.20437375, 5.7220458e-08)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Cable/V1_SailplaneGlider_1_LandingGear:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.117587e-08, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WheelF:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.3402563, 0.40536067)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("WheelF:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_R:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00089999894, -0.0038234647, -0.0034516486)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_R:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.2876327, 2.3023324, 0.7517759)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_L:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0009, -0.0038234647, -0.0034516486)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_L:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.2876327, -2.3023324, -0.7517759)]
+}
 
 [sub_resource type="Animation" id="Animation_w008i"]
 resource_name = "door_open"
@@ -826,11 +922,211 @@ tracks/3/keys = {
 "values": [Vector3(0, 0.11545521, 1.1060252), Vector3(0, 0.6611376, 1.5766042)]
 }
 
+[sub_resource type="Animation" id="Animation_3puar"]
+resource_name = "gear_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Cable/V1_SailplaneGlider_1_LandingGear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.2737367e-15, -0.20437375, 5.7220458e-08), Vector3(2.2737367e-15, -0.20437375, 5.7220458e-08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Cable/V1_SailplaneGlider_1_LandingGear:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.1309733, 0, 0), Vector3(1.117587e-08, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WheelF:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.14678565, 0.5225457), Vector3(0, -0.3402563, 0.40536067)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WheelF:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.1309733, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_R:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0010118869, -0.0038761573, -0.0035279694), Vector3(-0.0010211865, -0.0038487506, -0.0034565637), Vector3(-0.0010462007, -0.00385397, -0.0034575781)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_R:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5624169, 1.1440699, 1.1648568), Vector3(1.3017465, 2.3531508, 0.80067164), Vector3(1.3071896, 2.374927, 0.8216802)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_L:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0008204636, -0.0038560468, -0.0034868235), Vector3(0.0009, -0.0038234647, -0.0034516486), Vector3(0.0009, -0.0038234647, -0.0034516486)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_L:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5391678, 1.6868787, 1.6381516), Vector3(1.2876327, -2.3023324, -0.7517759), Vector3(1.2876327, -2.3023324, -0.7517759)]
+}
+
+[sub_resource type="Animation" id="Animation_hruys"]
+resource_name = "gear_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Cable/V1_SailplaneGlider_1_LandingGear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.2737367e-15, -0.20437375, 5.7220458e-08), Vector3(2.2737367e-15, -0.20437375, 5.7220458e-08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Cable/V1_SailplaneGlider_1_LandingGear:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.117587e-08, 0, 0), Vector3(-1.1309733, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WheelF:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.3402563, 0.40536067), Vector3(0, -0.14678565, 0.5225457)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WheelF:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.1309733, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_R:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0010462007, -0.00385397, -0.0034575781), Vector3(-0.0010211865, -0.0038487506, -0.0034565637), Vector3(-0.0010118869, -0.0038761573, -0.0035279694)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_R:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.3071896, 2.374927, 0.8216802), Vector3(1.3017465, 2.3531508, 0.80067164), Vector3(1.5624169, 1.1440699, 1.1648568)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_L:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0009, -0.0038234647, -0.0034516486), Vector3(0.0009, -0.0038234647, -0.0034516486), Vector3(0.0008204636, -0.0038560468, -0.0034868235)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("V1_SailplaneGlider_1_Animated/V1_SailplaneGlider_1_LandingGear_Door_L:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.2876327, -2.3023324, -0.7517759), Vector3(1.2876327, -2.3023324, -0.7517759), Vector3(1.5391678, 1.6868787, 1.6381516)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o1pwm"]
 _data = {
 &"RESET": SubResource("Animation_rm6cc"),
 &"door_close": ExtResource("15_o1pwm"),
-&"door_open": SubResource("Animation_w008i")
+&"door_open": SubResource("Animation_w008i"),
+&"gear_down": SubResource("Animation_3puar"),
+&"gear_up": SubResource("Animation_hruys")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rm6cc"]
@@ -939,11 +1235,11 @@ transform = Transform3D(100, 0, 0, 0, -12.348007, 99.23471, 0, -99.23471, -12.34
 script = ExtResource("5_w008i")
 
 [node name="V1_SailplaneGlider_1_LandingGear_Door_R" type="MeshInstance3D" parent="V1_SailplaneGlider_1_Animated" unique_id=517785599]
-transform = Transform3D(-2.0861628e-09, 0.009781479, 0.0020791134, 0.0019080901, 0.0020409147, -0.009601765, -0.009816272, 0.0003967113, -0.0018663945, -0.00089999894, -0.0038234647, -0.0034516486)
+transform = Transform3D(-2.0861624e-09, 0.009781479, 0.0020791139, 0.0019080897, 0.0020409147, -0.009601767, -0.00981627, 0.0003967113, -0.0018663949, -0.00089999894, -0.0038234647, -0.0034516486)
 mesh = SubResource("ArrayMesh_tigjt")
 
 [node name="V1_SailplaneGlider_1_LandingGear_Door_L" type="MeshInstance3D" parent="V1_SailplaneGlider_1_Animated" unique_id=1352004011]
-transform = Transform3D(-2.0861628e-09, -0.009781479, -0.0020791134, -0.0019080901, 0.0020409147, -0.009601765, 0.009816272, 0.0003967113, -0.0018663945, 0.0009, -0.0038234647, -0.0034516486)
+transform = Transform3D(-2.0861617e-09, -0.009781477, -0.0020791134, -0.0019080893, 0.0020409143, -0.009601764, 0.0098162675, 0.00039671123, -0.0018663944, 0.0009, -0.0038234647, -0.0034516486)
 mesh = SubResource("ArrayMesh_4ltpa")
 
 [node name="V1_SailplaneGlider_1_LandingGear_Cable" type="MeshInstance3D" parent="V1_SailplaneGlider_1_Animated" unique_id=1221037772]
@@ -992,7 +1288,7 @@ transform = Transform3D(1, 0, 0, 0, -0.08453006, 0.9964209, 0, -0.9964209, -0.08
 shape = SubResource("CapsuleShape3D_85g3d")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1559287302]
-transform = Transform3D(1, 0, 0, 0, -0.11966902, -0.9928135, 0, 0.9928135, -0.11966902, 0, 0.11545521, 1.1060252)
+transform = Transform3D(1, 0, 0, 0, -0.119669005, -0.9928134, 0, 0.9928134, -0.119669005, 0, 0.11545521, 1.1060252)
 shape = SubResource("CapsuleShape3D_choun")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=304325505]
@@ -1009,6 +1305,7 @@ shape = SubResource("BoxShape3D_trceg")
 
 [node name="WingL" type="Node3D" parent="." unique_id=2086232753]
 transform = Transform3D(0.9990283, -0.044072732, 0, 0.044072732, 0.9990283, 0, 0, 0, 1, 3.8260937, 0.41432917, -0.2802577)
+visible = false
 script = ExtResource("8_hruys")
 manual_config = SubResource("Resource_eb6dy")
 wing_config = SubResource("Resource_trceg")
@@ -1036,7 +1333,7 @@ wing_config = SubResource("Resource_og1vs")
 metadata/_custom_type_script = "uid://d1725od371u4a"
 
 [node name="elevator" type="Node3D" parent="Hor_stab" unique_id=1833204660]
-transform = Transform3D(1, 0, 0, 0, 0.9917786, -0.12796476, 0, 0.12796476, 0.9917786, -0.0062127113, 0, -0.12115002)
+transform = Transform3D(1, 0, 0, 0, 0.9865809, -0.16327254, 0, 0.16327254, 0.9865809, -0.0062127113, 0, -0.12115002)
 script = ExtResource("8_hruys")
 manual_config = SubResource("Resource_fv21b")
 wing_config = SubResource("Resource_tel4y")
